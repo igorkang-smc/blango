@@ -56,13 +56,15 @@ class Dev(Configuration):
         'django.contrib.staticfiles',
         'blog',
         "crispy_forms",
-        "crispy_bootstrap5"
+        "crispy_bootstrap5",
+        "debug_toolbar"
     ]
 
     MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
         # 'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
@@ -163,6 +165,8 @@ class Dev(Configuration):
     # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
     LANGUAGE_CODE = 'en-us'
+
+    INTERNAL_IPS = ["192.168.10.226"]
 
     TIME_ZONE = values.Value("UTC")
 
