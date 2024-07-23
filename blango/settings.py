@@ -60,6 +60,7 @@ class Dev(Configuration):
         "crispy_forms",
         "crispy_bootstrap5",
         "rest_framework",
+        "rest_framework.authtoken",
         "debug_toolbar",
         "allauth",
         "allauth.account",
@@ -83,7 +84,13 @@ class Dev(Configuration):
     ]
 
     ROOT_URLCONF = 'blango.urls'
-
+    REST_FRAMEWORK = {
+        "DEFAULT_AUTHENTICATION_CLASSES": [
+            "rest_framework.authentication.BasicAuthentication",
+            "rest_framework.authentication.SessionAuthentication",
+            "rest_framework.authentication.TokenAuthentication",
+        ]
+    }
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',

@@ -37,6 +37,9 @@ urlpatterns = [
     path("accounts/", include("django_registration.backends.activation.urls")),
     path("api/v1/", include("blog.api_urls")),
 ]
+urlpatterns += [
+    path("auth/", include("rest_framework.urls")),
+]
 
 if settings.DEBUG:
     urlpatterns += [
