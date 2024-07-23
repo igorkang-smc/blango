@@ -3,16 +3,16 @@
 {% block content %}
     <h2>Blog Posts</h2>
     {% for post in posts %}
-      {% row extra_classes="border-bottom" %}
-        {% col extra_classes="bg-dark" %}
+    {% row "border-bottom" %}
+        {% col "border-bottom" %}
             <h3>{{ post.title }}</h3>
             {% include "blog/post-byline.html" %}
             <p>{{ post.summary }}</p>
             <p>
                 ({{ post.content|wordcount }} words)
-                <a href="{% url "blog-post-detail" post.slug %}">Read More</a>
+                <a href="{% url "blog-post-detail" post.slug %}">Read More</a
             </p>
         {% endcol %}
-      {% endrow %}
+    {% endrow %}
     {% endfor %}
 {% endblock %}

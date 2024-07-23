@@ -1,12 +1,5 @@
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django_registration.forms import RegistrationForm
-from blango_auth.models import User
-
-
-class BlangoRegistrationForm(RegistrationForm):
-    class Meta(RegistrationForm.Meta):
-        model = User
+from django.shortcuts import render
 
 
 @login_required

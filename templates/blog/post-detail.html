@@ -3,14 +3,14 @@
 {% block content %}
 <h2>{{ post.title }}</h2>
 {% row %}
-    {% col %}
+    <div class="col">
         {% include "blog/post-byline.html" %}
-    {% endcol %}
+    </div>
 {% endrow %}
 {% row %}
-    {% col %}
+    <div class="col">
         {{ post.content|safe }}
-    {% endcol %}
+    </div>
 {% endrow %}
 {% if post.author.profile %}
     {% row %}
@@ -21,6 +21,7 @@
     {% endrow %}
 {% endif %}
 {% include "blog/post-comments.html" %}
+<!-- existing code here -->
 {% row %}
     {% col %}
         {% recent_posts post %}
