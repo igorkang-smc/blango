@@ -56,6 +56,7 @@ class Dev(Configuration):
       'blog',
       'crispy_forms',
       'crispy_bootstrap5',
+      'drf_yasg'
   ]
 
   REST_FRAMEWORK = {
@@ -68,6 +69,13 @@ class Dev(Configuration):
         "rest_framework.permissions.IsAuthenticatedOrReadOnly"
     ],
   }
+
+  SWAGGER_SETTINGS = {
+        "SECURITY_DEFINITIONS": {
+            "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+            "Basic": {"type": "basic"},
+        }
+    }
 
   MIDDLEWARE = [
       'django.middleware.security.SecurityMiddleware',
