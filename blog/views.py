@@ -4,6 +4,7 @@ from blog.models import Post
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from blog.forms import CommentForm
+from django.urls import reverse
 # Create your views here.
 import logging
 
@@ -40,4 +41,6 @@ def post_detail(request, slug):
     )
 
 def post_table(request):
-    return render(request, "blog/post-table.html")
+    return render(
+        request, "blog/post-table.html", {"post_list_url": reverse("post-list")}
+    )
